@@ -1,0 +1,55 @@
+<div className="justifyView">
+    <button mat-raised-button color="primary" (click)="openDialog()">ADD FILMSHOW</button>
+    <table>
+        <tr>
+            <td style="width: 65%;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th *ngFor="let filmShow_th of headers">
+                            <span class="theader">{{filmShow_th}}</span>
+                        </th>
+                        </tr>
+                        
+                    </thead>
+                    <tr *ngFor="let filmShow of filmShowList" [class.selected]="filmShow === selectedFilmShow">
+                        <td style="width: 20%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.title}}</span>
+                        </td>
+                        <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.genre}}</span>
+                        </td>
+                        <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.date}}</span>
+                        </td>
+                        <td style="width: 20%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.time}}</span>
+                        </td>
+                        <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.freeSeats}}</span>
+                        </td>
+                        <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
+                            <span class="tbody">{{filmShow.cinemaHall}}</span>
+                        </td>       
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 35%;">
+                <div class="details" *ngIf="selectedFilmShow!=null">
+                    <div>
+                        <b>{{selectedFilmShow.title}}</b>
+                    </div>
+                    <div>
+                        {{selectedFilmShow.genre}}
+                    </div>
+                    <div>
+                        {{selectedFilmShow.date}}, {{selectedFilmShow.time}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+</div>
+
+
