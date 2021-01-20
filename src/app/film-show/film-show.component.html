@@ -1,8 +1,8 @@
 <mat-card class="details">
     <mat-card-header>
-        <mat-card-title>Tytuł: {{filmShow.title|titlecase}}</mat-card-title>
+        <mat-card-title>Tytuł: {{filmShow.film.title|titlecase}}</mat-card-title>
         <mat-card-subtitle>
-            Gatunek: {{filmShow.genre|uppercase}}
+            Gatunek: {{filmShow.film.genre|uppercase}}
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content *ngIf="filmShow.time"><button mat-button (click)="openDialog()"><mat-icon class="red">Start seansu</mat-icon></button> Start: {{filmShow.Date}} godz. {{filmShow.time}} </mat-card-content>

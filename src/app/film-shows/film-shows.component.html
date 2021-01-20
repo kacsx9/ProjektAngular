@@ -5,18 +5,23 @@
                 <table> 
                     <thead>
                         <tr>
-                            <th *ngFor="let filmShow_th of headers">
-                            <span class="theader">{{filmShow_th}}</span>
-                        </th>
+                            <!-- <th *ngFor="let filmShow_th of headers"> -->
+                            <!-- <span class="theader">{{filmShow_th}}</span> -->
+                            <th><span class="theader">Tytuł</span></th>
+                            <th><span class="theader">Gatunek</span></th>
+                            <th><span class="theader">Data</span></th>
+                            <th><span class="theader">Godzina</span></th>
+                            <th><span class="theader">Wolne miejsca</span></th>
+                            <th><span class="theader">Sala</span></th>                   
                         </tr>
                         
                     </thead>
                     <tr *ngFor="let filmShow of sortedFilmShowList" [class.selected]="filmShow === selectedFilmShow">
                         <td style="width: 20%;" (mouseenter)="onSelect(filmShow)">
-                            <span class="tbody">{{filmShow.title}}</span>
+                            <span class="tbody">{{filmShow.film.title}}</span>
                         </td>
                         <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
-                            <span class="tbody">{{filmShow.genre}}</span>
+                            <span class="tbody">{{filmShow.film.genre}}</span>
                         </td>
                         <td style="width: 15%;" (mouseenter)="onSelect(filmShow)">
                             <span class="tbody">{{filmShow.date}}</span>

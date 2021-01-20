@@ -1,6 +1,8 @@
+import { Film } from './Film';
+
 export class FilmShow {
 
-    constructor(public title: string, public genre: string, public date: Date, public time: string, public freeSeats: number, public cinemaHall: number) {
+    constructor(public film: Film, public date: Date, public time: string, public freeSeats: number, public cinemaHall: number) {
 
     }
 

@@ -16,6 +16,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CinemaHallComponent } from './cinema-hall/cinema-hall.component';
+import { FilmComponent } from './film/film.component';
+import { FilmsComponent } from './films/films.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { MatIconModule } from '@angular/material/icon';
     FilmShowComponent,
     AddFilmShowComponent,
     EditFilmShowComponent,
-    FilmShowsComponent
+    FilmShowsComponent,
+    CinemaHallComponent,
+    FilmComponent,
+    FilmsComponent
   ],
   imports: [
     BrowserModule,

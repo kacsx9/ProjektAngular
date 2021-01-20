@@ -65,7 +65,7 @@ export class FilmShowsComponent implements OnInit {
           //   result.date = new Date();
           //   result.time = '';
           // }
-          this.newFilmShow = new FilmShow(result.title, result.genre, new Date(result.date), result.time, result.freeSeats, result.cinemaHall);
+          this.newFilmShow = new FilmShow(result.film, new Date(result.date), result.time, result.freeSeats, result.cinemaHall);
   
           this.filmShowList.push(this.newFilmShow);
         }

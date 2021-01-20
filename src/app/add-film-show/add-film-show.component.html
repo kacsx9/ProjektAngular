@@ -5,12 +5,12 @@
     <form #f="ngForm">
         <mat-form-field class="example-full-width">
             <mat-label>Tytuł </mat-label>
-            <input matInput [(ngModel)]="data.title" name="title" required minlength="3">
+            <input matInput [(ngModel)]="data.film.title" name="title" required minlength="3">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Gatunek </mat-label>
-            <input matInput [(ngModel)]="data.genre" name="genre" required minlength="3">
+            <input matInput [(ngModel)]="data.film.genre" name="genre" required minlength="3">
         </mat-form-field>
         
         <mat-form-field class="example-full-width">
