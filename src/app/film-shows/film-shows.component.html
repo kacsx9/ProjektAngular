@@ -1,9 +1,8 @@
 <div className="justifyView">
-    <button mat-raised-button color="primary" (click)="openDialog()">ADD FILMSHOW</button>
     <table>
         <tr>
             <td style="width: 65%;">
-                <table>
+                <table scrollY="true" maxHeight="400"> 
                     <thead>
                         <tr>
                             <th *ngFor="let filmShow_th of headers">
@@ -12,7 +11,7 @@
                         </tr>
                         
                     </thead>
-                    <tr *ngFor="let filmShow of filmShowList" [class.selected]="filmShow === selectedFilmShow">
+                    <tr *ngFor="let filmShow of sortedFilmShowList" [class.selected]="filmShow === selectedFilmShow">
                         <td style="width: 20%;" (mouseenter)="onSelect(filmShow)">
                             <span class="tbody">{{filmShow.title}}</span>
                         </td>
@@ -35,7 +34,7 @@
                 </table>
             </td>
             <td style="width: 35%;">
-                <div class="details" *ngIf="selectedFilmShow!=null">
+                <!-- <div class="details" *ngIf="selectedFilmShow!=null">
                     <div>
                         <b>{{selectedFilmShow.title}}</b>
                     </div>
@@ -45,10 +44,13 @@
                     <div>
                         {{selectedFilmShow.date}}, {{selectedFilmShow.time}}
                     </div>
-                </div>
+                </div> -->
+
+                <app-film-show [filmShow]="selectedFilmShow" (deleteFilmShow)="deleteSelectedFilmShow()" (editFilmShow)="openDialog(false,true)"></app-film-show>
             </td>
         </tr>
     </table>
+    <button mat-raised-button color="primary" (click)="openDialog(true, false)">DODAJ SEANS</button>
     
 </div>
 

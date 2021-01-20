@@ -3,18 +3,20 @@ import { AddFilmShowComponent } from '../add-film-show/add-film-show.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FilmShow } from '../FilmShow';
 import { FilmShows } from '../filmShows-mock';
+import { FilmShowComponent } from '../film-show/film-show.component';
 
 @Component({
   selector: 'app-film-shows',
   templateUrl: './film-shows.component.html',
   styleUrls: ['./film-shows.component.css']
 })
-export class FilmShowComponent implements OnInit {
+export class FilmShowsComponent implements OnInit {
 
   filmShowList = FilmShows;
   headers: string[] = [];
   selectedFilmShow?: any = null;
   newFilmShow: any = null;
+  selected = false;
 
   constructor(public dialog: MatDialog) {
     this.filmShowList.forEach(el => {
@@ -31,12 +33,23 @@ export class FilmShowComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get sortedFilmShowList() {
+    return this.filmShowList.sort((a, b) => {
+      return <any>new Date(b.date) - <any>new Date(a.date);
+    });
+  }
+
   onSelect(filmShow: FilmShow): void {
     this.selectedFilmShow = filmShow;
   }
 
+  deleteSelectedFilmShow(): void {
+    this.filmShowList = this.filmShowList.filter(obj => obj !== this.selectedFilmShow);
+    this.selectedFilmShow = null;
+    this.selected = false;
+  }
 
-  openDialog(): void {
+  openDialog(add: boolean, edit: boolean): void {
     let dialogRef = null;
 
     dialogRef = this.dialog.open(AddFilmShowComponent, {
