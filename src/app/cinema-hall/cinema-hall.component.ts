@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CinemaHall } from '../CinemaHall';
 
 @Component({
@@ -8,9 +8,13 @@ import { CinemaHall } from '../CinemaHall';
 })
 export class CinemaHallComponent implements OnInit {
   @Input() cinemaHall: CinemaHall | undefined;
- 
+  @Output() changeSeatStatus: EventEmitter<{i: number, j: number}> = new EventEmitter();
 
   ngOnInit(): void {
   }
 
+  changeStatus(i: number, j: number): void {
+   // let tab = [i,j];
+    this.changeSeatStatus.emit( {i,j} );
+  }
 }

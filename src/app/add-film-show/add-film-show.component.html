@@ -3,7 +3,7 @@
 </h1>
 <div mat-dialog-content>
     <form #f="ngForm">
-        <mat-form-field class="example-full-width">
+        <!-- <mat-form-field class="example-full-width">
             <mat-label>Tytuł </mat-label>
             <input matInput [(ngModel)]="data.film.title" name="title" required minlength="3">
         </mat-form-field>
@@ -11,26 +11,35 @@
         <mat-form-field class="example-full-width">
             <mat-label>Gatunek </mat-label>
             <input matInput [(ngModel)]="data.film.genre" name="genre" required minlength="3">
+        </mat-form-field> -->
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Film</mat-label>
+            <mat-select [(ngModel)]="data.film" name="film" required>
+                <mat-option *ngFor="let f of filmList" [value]="f">
+                    {{f.title}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
         
         <mat-form-field class="example-full-width">
             <mat-label>Data seansu </mat-label>
-            <input matInput type="date" [(ngModel)]="data.date" name="date">
+            <input matInput type="date" [(ngModel)]="data.date" name="date" required>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Czas seansu </mat-label>
-            <input matInput type="time" [(ngModel)]="data.time" name="date">
+            <input matInput type="time" [(ngModel)]="data.time" name="date" required>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <mat-label>Sala </mat-label>
-            <input matInput [(ngModel)]="data.cinemaHall" name="cinemaHall" type="number" >
+            <mat-label>Liczba rzędów </mat-label>
+            <input matInput [(ngModel)]="data.rows" name="cinemaHall" type="number" required>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <mat-label>Wolne miejsca </mat-label>
-            <input matInput [(ngModel)]="data.freeSeats" name="freeSeats" type="number" >
+            <mat-label>Liczba miejsc w rzędzie </mat-label>
+            <input matInput [(ngModel)]="data.seats" name="freeSeats" type="number" required>
         </mat-form-field>
 
         <div mat-dialog-actions>

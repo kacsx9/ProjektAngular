@@ -19,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CinemaHallComponent } from './cinema-hall/cinema-hall.component';
 import { FilmComponent } from './film/film.component';
 import { FilmsComponent } from './films/films.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { FilmsComponent } from './films/films.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    MatSortModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pl' }],
   bootstrap: [AppComponent]

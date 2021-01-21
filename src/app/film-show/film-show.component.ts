@@ -12,6 +12,7 @@ export class FilmShowComponent implements OnInit {
   @Input() filmShow: FilmShow | undefined;
   @Output() deleteFilmShow: EventEmitter<void> = new EventEmitter();
   @Output() editFilmShow: EventEmitter<void> = new EventEmitter();
+  @Output() changeSeatStatusEmit: EventEmitter<{i: number, j: number}> = new EventEmitter();
 
   constructor(public dialog: MatDialog) { }
 
@@ -26,35 +27,7 @@ export class FilmShowComponent implements OnInit {
     this.editFilmShow.emit();
   }
 
-  // openDialog(): void {
-  //   let dialogRef = null;
-  //   console.log(this.filmShow.DateWithDots);
-  //   dialogRef = this.dialog.open(AddReminderComponent, {
-  //     width: '30%',
-  //     data: { date: this.filmShow.DateWithDots, time: this.filmShow.time }
-  //   });
-
-  
-  //to chyba jest do jakiejś edycji czy coś ale idk co z tym zrobic poki co - pewnie sie wyrzuci
-  openDialog(): void {
-    let dialogRef = null;
-    console.log(this.filmShow.DateWithDots);
-    dialogRef = this.dialog.open(EditFilmShowComponent, {
-      width: '30%',
-      data: { date: this.filmShow.DateWithDots, time: this.filmShow.time }
-    });
-
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result !== undefined) {
-        if (result.time !== '' && result.date !== '') {
-          this.filmShow.date = new Date(result.date);
-          this.filmShow.time = result.time;
-        }
-
-      }
-    });
-  }
-
-  
+  changeSeatStatus(i: number, j: number): void {
+    this.changeSeatStatusEmit.emit({i, j});
+  }  
 }

@@ -1,8 +1,14 @@
+import { CinemaHall } from './CinemaHall';
 import { Film } from './Film';
 
 export class FilmShow {
 
-    constructor(public film: Film, public date: Date, public time: string, public freeSeats: number, public cinemaHall: number) {
+    rows: number = this.cinemaHall.Rows;
+    seats: number = this.cinemaHall.Seats;
+
+    totalSeats: number = this.rows*this.seats;
+
+    constructor(public film: Film, public date: Date, public time: string, public cinemaHall: CinemaHall) {
 
     }
 

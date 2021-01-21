@@ -1,1 +1,31 @@
-<p>films works!</p>
+<div className="justifyView">
+    <table>
+                    <thead>
+                        <tr>
+                            <!-- <th *ngFor="let filmShow_th of headers"> -->
+                            <!-- <span class="theader">{{filmShow_th}}</span> -->
+                            <th><span class="theader">Tytuł</span></th>
+                            <th><span class="theader">Gatunek</span></th>
+                            <th><span class="theader">FilmWeb</span></th>             
+                        </tr>
+                        
+                    </thead>
+                    <tr *ngFor="let film of filmList">
+                        <td style="width: 40%;"> 
+                            <span class="tbody">{{film.title}}</span>
+                        </td>
+                        <td style="width: 40%;">
+                            <span class="tbody">{{film.genre}}</span>
+                        </td>     
+                        <td style="width: 20%;">
+                            <span class="tbody">
+                                <a href="{{film.filmWebLink}}"><i class="material-icons">link</i></a>
+                            </span>
+                        </td>
+                    </tr>
+              
+    </table>
+    
+</div>
+
+
